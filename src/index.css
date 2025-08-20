@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .auth-card {
+    @apply bg-white rounded-2xl shadow-lg p-8 animate-fade-in;
+  }
+  
+  .auth-button {
+    @apply w-full bg-masai-red text-white py-3 px-4 rounded-lg font-medium hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-masai-red focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200;
+  }
+  
+  .auth-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-masai-red focus:outline-none transition-colors;
+  }
+  
+  .otp-input {
+    @apply w-12 h-12 text-center text-lg font-medium border border-gray-300 rounded-lg focus:border-masai-red focus:outline-none transition-colors;
+  }
+  
+  .method-card {
+    @apply p-4 border border-gray-200 rounded-lg hover:border-masai-red hover:bg-red-50 transition-all duration-200 text-left group cursor-pointer;
+  }
+  
+  .method-icon {
+    @apply w-10 h-10 bg-gray-100 group-hover:bg-masai-red group-hover:text-white rounded-lg flex items-center justify-center transition-all duration-200;
+  }
+}
+
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #c10007;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #a00006;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Smooth transitions for phase changes */
+.phase-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus styles for better accessibility */
+.auth-input:focus {
+  border-color: #c10007;
+}
+
+.otp-input:focus {
+  border-color: #c10007;
+}
+
+.auth-button:focus {
+  box-shadow: 0 0 0 3px rgba(193, 0, 7, 0.3);
+}
+
+/* Modal overlay animation */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .auth-card {
+    @apply p-6;
+  }
+}
